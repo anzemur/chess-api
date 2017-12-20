@@ -1,8 +1,8 @@
 {
 	"variables": [],
 	"info": {
-		"name": "elm_chess",
-		"_postman_id": "8b6b0d52-c4d8-3181-94bc-127b600eb153",
+		"name": "elm_chess_heroku",
+		"_postman_id": "0049ac8e-13ea-a3d2-b382-e33fd8d3b7c6",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -15,12 +15,13 @@
 					"name": "listTopFive",
 					"request": {
 						"url": {
-							"raw": "http://localhost:3000/api/v1/highscores",
-							"protocol": "http",
+							"raw": "https://chess-api-chess.herokuapp.com/api/v1/highscores",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"chess-api-chess",
+								"herokuapp",
+								"com"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"v1",
@@ -70,7 +71,7 @@
 				{
 					"name": "addPlayer",
 					"request": {
-						"url": "http://localhost:3000/api/v1/highscores/add",
+						"url": "https://chess-api-chess.herokuapp.com/api/v1/highscores/add",
 						"method": "POST",
 						"header": [
 							{
@@ -113,7 +114,7 @@
 						{
 							"name": "checkGameOver",
 							"request": {
-								"url": "http://localhost:3000/api/v1/chess/two/check",
+								"url": "https://chess-api-chess.herokuapp.com/api/v1/chess/two/check",
 								"method": "GET",
 								"header": [],
 								"body": {},
@@ -124,7 +125,7 @@
 						{
 							"name": "listPosibleMoves",
 							"request": {
-								"url": "http://localhost:3000/api/v1/chess/two/moves",
+								"url": "https://chess-api-chess.herokuapp.com/api/v1/chess/two/moves",
 								"method": "POST",
 								"header": [
 									{
@@ -151,7 +152,7 @@
 						{
 							"name": "createNewGame",
 							"request": {
-								"url": "http://localhost:3000/api/v1/chess/two",
+								"url": "https://chess-api-chess.herokuapp.com/api/v1/chess/two",
 								"method": "GET",
 								"header": [],
 								"body": {},
@@ -162,7 +163,7 @@
 						{
 							"name": "moveFigure",
 							"request": {
-								"url": "http://localhost:3000/api/v1/chess/two/move",
+								"url": "https://chess-api-chess.herokuapp.com/api/v1/chess/two/move",
 								"method": "POST",
 								"header": [
 									{
@@ -202,7 +203,7 @@
 						{
 							"name": "createNewGame",
 							"request": {
-								"url": "http://localhost:3000/api/v1/chess/one",
+								"url": "https://chess-api-chess.herokuapp.com/api/v1/chess/one",
 								"method": "GET",
 								"header": [],
 								"body": {},
@@ -213,7 +214,7 @@
 						{
 							"name": "listPosibleMoves",
 							"request": {
-								"url": "http://localhost:3000/api/v1/chess/one/moves",
+								"url": "https://chess-api-chess.herokuapp.com/api/v1/chess/one/moves",
 								"method": "POST",
 								"header": [
 									{
@@ -240,7 +241,7 @@
 						{
 							"name": "moveFigurePlayer",
 							"request": {
-								"url": "http://localhost:3000/api/v1/chess/one/move/player",
+								"url": "https://chess-api-chess.herokuapp.com/api/v1/chess/one/move/player",
 								"method": "POST",
 								"header": [
 									{
@@ -273,7 +274,7 @@
 						{
 							"name": "moveFigureAI",
 							"request": {
-								"url": "http://localhost:3000/api/v1/chess/one/move/ai",
+								"url": "https://chess-api-chess.herokuapp.com/api/v1/chess/one/move/ai",
 								"method": "GET",
 								"header": [
 									{
@@ -306,7 +307,7 @@
 						{
 							"name": "checkGameOver",
 							"request": {
-								"url": "http://localhost:3000/api/v1/chess/one/check",
+								"url": "https://chess-api-chess.herokuapp.com/api/v1/chess/one/check",
 								"method": "GET",
 								"header": [],
 								"body": {},

@@ -1,0 +1,323 @@
+{
+	"variables": [],
+	"info": {
+		"name": "elm_chess_local",
+		"_postman_id": "8b6b0d52-c4d8-3181-94bc-127b600eb153",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Highscores",
+			"description": "",
+			"item": [
+				{
+					"name": "listTopFive",
+					"request": {
+						"url": {
+							"raw": "http://localhost:3000/api/v1/highscores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"highscores"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"equals": true,
+									"description": "",
+									"disabled": true
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "position",
+									"value": "a2",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"description": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "addPlayer",
+					"request": {
+						"url": "http://localhost:3000/api/v1/highscores/add",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "playerX",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "score",
+									"value": "10",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Chess",
+			"description": "",
+			"item": [
+				{
+					"name": "twoPlayersGame",
+					"description": "",
+					"item": [
+						{
+							"name": "checkGameOver",
+							"request": {
+								"url": "http://localhost:3000/api/v1/chess/two/check",
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "listPosibleMoves",
+							"request": {
+								"url": "http://localhost:3000/api/v1/chess/two/moves",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "position",
+											"value": "a2",
+											"description": "",
+											"type": "text"
+										}
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "createNewGame",
+							"request": {
+								"url": "http://localhost:3000/api/v1/chess/two",
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "moveFigure",
+							"request": {
+								"url": "http://localhost:3000/api/v1/chess/two/move",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "from",
+											"value": "a2",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "to",
+											"value": "a3",
+											"description": "",
+											"type": "text"
+										}
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "onePlayerGame",
+					"description": "",
+					"item": [
+						{
+							"name": "createNewGame",
+							"request": {
+								"url": "http://localhost:3000/api/v1/chess/one",
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "listPosibleMoves",
+							"request": {
+								"url": "http://localhost:3000/api/v1/chess/one/moves",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "position",
+											"value": "a2",
+											"description": "",
+											"type": "text"
+										}
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "moveFigurePlayer",
+							"request": {
+								"url": "http://localhost:3000/api/v1/chess/one/move/player",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "from",
+											"value": "a2",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "to",
+											"value": "a3",
+											"description": "",
+											"type": "text"
+										}
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "moveFigureAI",
+							"request": {
+								"url": "http://localhost:3000/api/v1/chess/one/move/ai",
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "from",
+											"value": "d2dsdassd",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "to",
+											"value": "c3",
+											"description": "",
+											"type": "text"
+										}
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "checkGameOver",
+							"request": {
+								"url": "http://localhost:3000/api/v1/chess/one/check",
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		}
+	]
+}
