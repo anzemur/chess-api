@@ -1,0 +1,23 @@
+{
+  "apiVersion": "1.0.0",
+  "swaggerVersion": "1.2",
+  "basePath": "",
+  "resourcePath": "/stores",
+  "apis": [
+    {
+      "path": "/stores",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "",
+          "responseMessages": [
+            {
+              "code": 200,
+              "message": "Return all stores"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

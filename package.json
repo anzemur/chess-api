@@ -1,0 +1,21 @@
+{
+  "name": "elm_chess_api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+   "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Anze Mur",
+  "license": "ISC",
+  "dependencies": {
+    "chess-ai-kong": "^0.3.3",
+    "chess.js": "^0.10.2",
+    "express": "^4.16.2",
+    "hhmmss": "^1.0.0",
+    "mongoose": "^4.13.7",
+    "mongose": "0.0.2-security",
+    "parse-seconds": "^1.0.0",
+    "swagger-tools": "^0.10.3"
+  }
+}
