@@ -6,8 +6,13 @@ var StatusSchema = new mongoose.Schema({
     status: {
         type: String
     },
+
     game_over_status: {
         type: Boolean
+    },
+
+    game_id: {
+        type: String
     }
 });
 
@@ -28,10 +33,12 @@ var AIMovesSchema = new mongoose.Schema ({
     from: {
         type: String
     },
+
     to: {
         type: String
 
     },
+
     status: {
         type: String
 
@@ -41,3 +48,30 @@ var AIMovesSchema = new mongoose.Schema ({
 
 
 module.exports = mongoose.model('AIMoves', AIMovesSchema);
+
+
+var ChessSchema = new mongoose.Schema ({
+    chess: {
+        type: String
+    },
+
+    chess_moves: [{
+        type: String
+    }],
+
+    game_id: {
+        type: String
+    },
+
+    createAt: {
+        type: Date,
+        default: Date.now(),
+        index: { expires: '2h' },
+        expireAfterSeconds: 7200
+    }
+
+
+});
+
+
+module.exports = mongoose.model('Chess', ChessSchema);

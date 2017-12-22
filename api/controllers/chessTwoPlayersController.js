@@ -10,6 +10,7 @@ var status = new Status();
 
 exports.startNewGame = function(req, res) {
     chess = new Chess();
+    console.log(chess);
     status.status = "new game started";
     res.json(status);
     printChessboard();
