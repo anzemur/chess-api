@@ -1,7 +1,7 @@
 # Chess API
 API for playing chess and highscores API.
-### [APP URL: ](https://chess-api-chess.herokuapp.com/)
-### [API URL: ](https://chess-api-chess.herokuapp.com/api/v1)
+* ### [APP URL: ](https://chess-api-chess.herokuapp.com/) https://chess-api-chess.herokuapp.com/
+* ### [API URL: ](https://chess-api-chess.herokuapp.com/api/v1) https://chess-api-chess.herokuapp.com/api/v1
 
 ## Feautures:
 
