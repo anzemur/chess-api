@@ -13,7 +13,19 @@ var StatusSchema = new mongoose.Schema({
 
     game_id: {
         type: String
+    },
+
+    fen_string: {
+        type: String
+
+    },
+
+    turn: {
+        type: String
+
     }
+
+
 });
 
 module.exports = mongoose.model('Status', StatusSchema);

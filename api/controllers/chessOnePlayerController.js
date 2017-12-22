@@ -28,10 +28,12 @@ exports.startNewGame = function(req, res) {
         if(err) {
             res.send(err);
         }
-        status.status = "new game started";
-        status.game_id = gameId;
+        var gameStatus = new Status();
 
-        res.json(status);
+        gameStatus.status = "new game started";
+        gameStatus.game_id = gameId;
+
+        res.json(gameStatus);
     });
 
     // printChessboard();
@@ -260,6 +262,49 @@ exports.moveAI = function(req, res) {
 
     });
 };
+
+
+exports.returnFEN = function(req, res){
+    var gameId = req.body.game_id;
+
+    getChess(gameId, currentGame => {
+
+        if(currentGame != null) {
+            var chess = new Chess(currentGame.chess);
+            var fenStatus = new Status();
+
+            fenStatus.fen_string = chess.fen();
+            res.json(fenStatus);
+
+        } else {
+            status.status = "error: The game has expired OR you didn't put the game_id as the parameter!";
+            res.json(status);
+
+        }
+    });
+};
+
+
+exports.returnTurn = function(req, res){
+    var gameId = req.body.game_id;
+
+    getChess(gameId, currentGame => {
+
+        if(currentGame != null) {
+            var chess = new Chess(currentGame.chess);
+            var turnStatus = new Status();
+
+            turnStatus.turn = chess.turn();
+            res.json(turnStatus);
+
+        } else {
+            status.status = "error: The game has expired OR you didn't put the game_id as the parameter!";
+            res.json(status);
+
+        }
+    });
+};
+
 
 
 

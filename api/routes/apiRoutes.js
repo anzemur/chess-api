@@ -32,6 +32,13 @@ module.exports = function(app) {
     versionRouter.route('/chess/one/check')
         .post(chessOnePlayerController.checkGameOver);
 
+    versionRouter.route('/chess/one/fen')
+        .post(chessOnePlayerController.returnFEN);
+
+    versionRouter.route('/chess/one/turn')
+        .post(chessOnePlayerController.returnTurn);
+
+
 
 
 
