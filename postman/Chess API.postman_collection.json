@@ -1,0 +1,1105 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Chess API",
+		"_postman_id": "ad2f0eee-233f-fc5c-123d-d3230fa72f28",
+		"description": "Chess API + highscores API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Highscores",
+			"description": "",
+			"item": [
+				{
+					"name": "Create new local scoreboard",
+					"request": {
+						"url": {
+							"raw": "http://chess-api-chess.herokuapp.com/api/v1/scoreboard",
+							"protocol": "http",
+							"host": [
+								"chess-api-chess",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"scoreboard"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"equals": true,
+									"description": "",
+									"disabled": true
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "scoreboard_id",
+									"value": "5a42ccb81b3f5e25cc4f0fc3",
+									"description": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"description": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Create new local scoreboard : generates a scoreboard_id."
+					},
+					"response": []
+				},
+				{
+					"name": "listTopFive",
+					"request": {
+						"url": {
+							"raw": "http://chess-api-chess.herokuapp.com/api/v1/highscores",
+							"protocol": "http",
+							"host": [
+								"chess-api-chess",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"highscores"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"equals": true,
+									"description": "",
+									"disabled": true
+								}
+							],
+							"variable": []
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "scoreboard_id",
+									"value": "5a42ccb81b3f5e25cc4f0fc3",
+									"description": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"description": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Lists top five players. If parameter scoreboard_id is added you get the local highscores."
+					},
+					"response": []
+				},
+				{
+					"name": "addPlayer",
+					"request": {
+						"url": "http://chess-api-chess.herokuapp.com/api/v1/highscores/add",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "playerX",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "score",
+									"value": "10",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": "Adds a player to the scoreboard.\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Chess",
+			"description": "",
+			"item": [
+				{
+					"name": "One player game",
+					"description": "",
+					"item": [
+						{
+							"name": "Gameplay",
+							"description": "",
+							"item": [
+								{
+									"name": "Create new game",
+									"request": {
+										"url": "http://chess-api-chess.herokuapp.com/api/v1/chess/one",
+										"method": "GET",
+										"header": [],
+										"body": {},
+										"description": "Creates a new game and generates new game_id.\n"
+									},
+									"response": []
+								},
+								{
+									"name": "List possible moves",
+									"request": {
+										"url": "http://chess-api-chess.herokuapp.com/api/v1/chess/one/moves",
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"description": ""
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "position",
+													"value": "a2",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"description": "Returns a list of legal moves from the current position."
+									},
+									"response": []
+								},
+								{
+									"name": "Move figure player",
+									"request": {
+										"url": "http://chess-api-chess.herokuapp.com/api/v1/chess/one/move/player",
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"description": ""
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "from",
+													"value": "a2",
+													"description": "",
+													"type": "text"
+												},
+												{
+													"key": "to",
+													"value": "a3",
+													"description": "",
+													"type": "text"
+												},
+												{
+													"key": "game_id",
+													"value": "5a43ca62772e4e00148e207b",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"description": "Attempts to make a move on the board."
+									},
+									"response": []
+								},
+								{
+									"name": "Move figure AI",
+									"request": {
+										"url": "http://chess-api-chess.herokuapp.com/api/v1/chess/one/move/ai",
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"description": ""
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "game_id",
+													"value": "5a43c4f3d326e114807278d2",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"description": "AI attempts to make a move on the board."
+									},
+									"response": []
+								},
+								{
+									"name": "Check game over",
+									"request": {
+										"url": "http://chess-api-chess.herokuapp.com/api/v1/chess/one/check",
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"description": ""
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "game_id",
+													"value": "5a3c356be4538a2628f17ca4",
+													"description": "",
+													"type": "text"
+												},
+												{
+													"key": "",
+													"value": "",
+													"description": "",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										},
+										"description": "Returns the current state of the game (checkmate, stalemate, draw, threefold repetition, or insufficient material, game continues)."
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Other options",
+							"description": "",
+							"item": [
+								{
+									"name": "getFEN",
+									"request": {
+										"url": "http://chess-api-chess.herokuapp.com/api/v1/chess/one/fen",
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"description": ""
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "game_id",
+													"value": "5a3cf85420055432a4a430da",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"description": ""
+									},
+									"response": []
+								},
+								{
+									"name": "getAscii",
+									"request": {
+										"url": "http://chess-api-chess.herokuapp.com/api/v1/chess/one/fen",
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"description": ""
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "game_id",
+													"value": "5a3cf85420055432a4a430da",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"description": ""
+									},
+									"response": []
+								},
+								{
+									"name": "getPgn",
+									"request": {
+										"url": "http://chess-api-chess.herokuapp.com/api/v1/chess/one/pgn",
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"description": ""
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "game_id",
+													"value": "5a3cf85420055432a4a430da",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"description": ""
+									},
+									"response": []
+								},
+								{
+									"name": "getTurn",
+									"request": {
+										"url": "http://chess-api-chess.herokuapp.com/api/v1/chess/one/turn",
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"description": ""
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "game_id",
+													"value": "5a3cf98c91820501608bc67e",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"description": ""
+									},
+									"response": []
+								},
+								{
+									"name": "undoMove",
+									"request": {
+										"url": "http://chess-api-chess.herokuapp.com/api/v1/chess/one/undo",
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"description": ""
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "game_id",
+													"value": "5a43c4f3d326e114807278d2",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"description": ""
+									},
+									"response": []
+								},
+								{
+									"name": "resetBoard",
+									"request": {
+										"url": "http://chess-api-chess.herokuapp.com/api/v1/chess/one/reset",
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"description": ""
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "game_id",
+													"value": "5a43c4f3d326e114807278d2",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"description": ""
+									},
+									"response": []
+								},
+								{
+									"name": "clearBoard",
+									"request": {
+										"url": "http://chess-api-chess.herokuapp.com/api/v1/chess/one/clear",
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"description": ""
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "game_id",
+													"value": "5a43c4f3d326e114807278d2",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"description": ""
+									},
+									"response": []
+								},
+								{
+									"name": "Start new game from FEN",
+									"request": {
+										"url": "http://chess-api-chess.herokuapp.com/api/v1/chess/one/start/fen",
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"description": ""
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "game_id",
+													"value": "5a43c4f3d326e114807278d2",
+													"description": "",
+													"type": "text"
+												},
+												{
+													"key": "fen",
+													"value": "4r3/8/2p2PPk/1p6/pP2p1R1/P1B5/2P2K2/3r4 w - - 1 45",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"description": ""
+									},
+									"response": []
+								},
+								{
+									"name": "Start new game from pgn",
+									"request": {
+										"url": "http://chess-api-chess.herokuapp.com/api/v1/chess/one/start/fen",
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"description": ""
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "game_id",
+													"value": "5a43c4f3d326e114807278d2",
+													"description": "",
+													"type": "text"
+												},
+												{
+													"key": "pgn",
+													"value": "",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"description": ""
+									},
+									"response": []
+								},
+								{
+									"name": "Load FEN over current game",
+									"request": {
+										"url": "http://chess-api-chess.herokuapp.com/api/v1/chess/one/load/over/fen",
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"description": ""
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "game_id",
+													"value": "5a43c4f3d326e114807278d2",
+													"description": "",
+													"type": "text"
+												},
+												{
+													"key": "fen",
+													"value": "4r3/8/2p2PPk/1p6/pP2p1R1/P1B5/2P2K2/3r4 w - - 1 45",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"description": ""
+									},
+									"response": []
+								},
+								{
+									"name": "Load pgn over current game",
+									"request": {
+										"url": "http://chess-api-chess.herokuapp.com/api/v1/chess/one/load/over/fen",
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"description": ""
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "game_id",
+													"value": "5a43c4f3d326e114807278d2",
+													"description": "",
+													"type": "text"
+												},
+												{
+													"key": "pgn",
+													"value": "",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"description": ""
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Two players game",
+					"description": "",
+					"item": [
+						{
+							"name": "Gameplay",
+							"description": "",
+							"item": [
+								{
+									"name": "Create new game",
+									"request": {
+										"url": "http://chess-api-chess.herokuapp.com/api/v1/chess/two",
+										"method": "GET",
+										"header": [],
+										"body": {},
+										"description": "Creates a new game and generates new game_id.\n"
+									},
+									"response": []
+								},
+								{
+									"name": "List possible moves",
+									"request": {
+										"url": "http://chess-api-chess.herokuapp.com/api/v1/chess/two/moves",
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"description": ""
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "position",
+													"value": "a2",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"description": "Returns a list of legal moves from the current position."
+									},
+									"response": []
+								},
+								{
+									"name": "Move figure player",
+									"request": {
+										"url": "http://chess-api-chess.herokuapp.com/api/v1/chess/two/move",
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"description": ""
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "from",
+													"value": "a2",
+													"description": "",
+													"type": "text"
+												},
+												{
+													"key": "to",
+													"value": "a3",
+													"description": "",
+													"type": "text"
+												},
+												{
+													"key": "game_id",
+													"value": "5a43ca62772e4e00148e207b",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"description": "Attempts to make a move on the board."
+									},
+									"response": []
+								},
+								{
+									"name": "Check game over",
+									"request": {
+										"url": "http://chess-api-chess.herokuapp.com/api/v1/chess/two/check",
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"description": ""
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "game_id",
+													"value": "5a3c356be4538a2628f17ca4",
+													"description": "",
+													"type": "text"
+												},
+												{
+													"key": "",
+													"value": "",
+													"description": "",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										},
+										"description": "Returns the current state of the game (checkmate, stalemate, draw, threefold repetition, or insufficient material, game continues)."
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Other options",
+							"description": "",
+							"item": [
+								{
+									"name": "getFEN",
+									"request": {
+										"url": "http://chess-api-chess.herokuapp.com/api/v1/chess/two/fen",
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"description": ""
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "game_id",
+													"value": "5a3cf85420055432a4a430da",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"description": ""
+									},
+									"response": []
+								},
+								{
+									"name": "getAscii",
+									"request": {
+										"url": "http://chess-api-chess.herokuapp.com/api/v1/chess/two/fen",
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"description": ""
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "game_id",
+													"value": "5a3cf85420055432a4a430da",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"description": ""
+									},
+									"response": []
+								},
+								{
+									"name": "getPgn",
+									"request": {
+										"url": "http://chess-api-chess.herokuapp.com/api/v1/chess/two/pgn",
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"description": ""
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "game_id",
+													"value": "5a3cf85420055432a4a430da",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"description": ""
+									},
+									"response": []
+								},
+								{
+									"name": "getTurn",
+									"request": {
+										"url": "http://chess-api-chess.herokuapp.com/api/v1/chess/two/turn",
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"description": ""
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "game_id",
+													"value": "5a3cf98c91820501608bc67e",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"description": ""
+									},
+									"response": []
+								},
+								{
+									"name": "undoMove",
+									"request": {
+										"url": "http://chess-api-chess.herokuapp.com/api/v1/chess/two/undo",
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"description": ""
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "game_id",
+													"value": "5a43c4f3d326e114807278d2",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"description": ""
+									},
+									"response": []
+								},
+								{
+									"name": "resetBoard",
+									"request": {
+										"url": "http://chess-api-chess.herokuapp.com/api/v1/chess/two/reset",
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"description": ""
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "game_id",
+													"value": "5a43c4f3d326e114807278d2",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"description": ""
+									},
+									"response": []
+								},
+								{
+									"name": "clearBoard",
+									"request": {
+										"url": "http://chess-api-chess.herokuapp.com/api/v1/chess/two/clear",
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"description": ""
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "game_id",
+													"value": "5a43c4f3d326e114807278d2",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"description": ""
+									},
+									"response": []
+								},
+								{
+									"name": "Start new game from FEN",
+									"request": {
+										"url": "http://chess-api-chess.herokuapp.com/api/v1/chess/two/start/fen",
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"description": ""
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "game_id",
+													"value": "5a43c4f3d326e114807278d2",
+													"description": "",
+													"type": "text"
+												},
+												{
+													"key": "fen",
+													"value": "4r3/8/2p2PPk/1p6/pP2p1R1/P1B5/2P2K2/3r4 w - - 1 45",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"description": ""
+									},
+									"response": []
+								},
+								{
+									"name": "Start new game from pgn",
+									"request": {
+										"url": "http://chess-api-chess.herokuapp.com/api/v1/chess/two/start/fen",
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"description": ""
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "game_id",
+													"value": "5a43c4f3d326e114807278d2",
+													"description": "",
+													"type": "text"
+												},
+												{
+													"key": "pgn",
+													"value": "",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"description": ""
+									},
+									"response": []
+								},
+								{
+									"name": "Load FEN over current game",
+									"request": {
+										"url": "http://chess-api-chess.herokuapp.com/api/v1/chess/two/load/over/fen",
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"description": ""
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "game_id",
+													"value": "5a43c4f3d326e114807278d2",
+													"description": "",
+													"type": "text"
+												},
+												{
+													"key": "fen",
+													"value": "4r3/8/2p2PPk/1p6/pP2p1R1/P1B5/2P2K2/3r4 w - - 1 45",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"description": ""
+									},
+									"response": []
+								},
+								{
+									"name": "Load pgn over current game",
+									"request": {
+										"url": "http://chess-api-chess.herokuapp.com/api/v1/chess/two/load/over/fen",
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"description": ""
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "game_id",
+													"value": "5a43c4f3d326e114807278d2",
+													"description": "",
+													"type": "text"
+												},
+												{
+													"key": "pgn",
+													"value": "",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"description": ""
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		}
+	]
+}

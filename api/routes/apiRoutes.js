@@ -38,6 +38,34 @@ module.exports = function(app) {
     versionRouter.route('/chess/one/turn')
         .post(chessOnePlayerController.returnTurn);
 
+    versionRouter.route('/chess/one/ascii')
+        .post(chessOnePlayerController.returnAscii);
+
+    versionRouter.route('/chess/one/pgn')
+        .post(chessOnePlayerController.returnPgn);
+
+    versionRouter.route('/chess/one/load/over/fen')
+        .post(chessOnePlayerController.loadFenOverCurrent);
+
+    versionRouter.route('/chess/one/load/over/pgn')
+        .post(chessOnePlayerController.loadPgnOverCurrent);
+
+    versionRouter.route('/chess/one/clear')
+        .post(chessOnePlayerController.clearBoard);
+
+    versionRouter.route('/chess/one/reset')
+        .post(chessOnePlayerController.resetBoard);
+
+    versionRouter.route('/chess/one/undo')
+        .post(chessOnePlayerController.undoLastMove);
+
+    versionRouter.route('/chess/one/start/fen')
+        .post(chessOnePlayerController.startNewGameWithFEN);
+
+    versionRouter.route('/chess/one/start/pgn')
+        .post(chessOnePlayerController.startNewGameWithFEN);
+
+
 
 
 
@@ -53,14 +81,49 @@ module.exports = function(app) {
         .post(chessTwoPlayersController.move);
 
     versionRouter.route('/chess/two/check')
-        .get(chessTwoPlayersController.checkGameOver);
+        .post(chessTwoPlayersController.checkGameOver);
 
+    versionRouter.route('/chess/two/fen')
+        .post(chessTwoPlayersController.returnFEN);
+
+    versionRouter.route('/chess/two/turn')
+        .post(chessTwoPlayersController.returnTurn);
+
+    versionRouter.route('/chess/two/ascii')
+        .post(chessTwoPlayersController.returnAscii);
+
+    versionRouter.route('/chess/two/pgn')
+        .post(chessTwoPlayersController.returnPgn);
+
+    versionRouter.route('/chess/two/load/over/fen')
+        .post(chessTwoPlayersController.loadFenOverCurrent);
+
+    versionRouter.route('/chess/two/load/over/pgn')
+        .post(chessTwoPlayersController.loadPgnOverCurrent);
+
+    versionRouter.route('/chess/two/clear')
+        .post(chessTwoPlayersController.clearBoard);
+
+    versionRouter.route('/chess/two/reset')
+        .post(chessTwoPlayersController.resetBoard);
+
+    versionRouter.route('/chess/two/undo')
+        .post(chessTwoPlayersController.undoLastMove);
+
+    versionRouter.route('/chess/two/start/fen')
+        .post(chessTwoPlayersController.startNewGameWithFEN);
+
+    versionRouter.route('/chess/two/start/pgn')
+        .post(chessTwoPlayersController.startNewGameWithFEN);
 
 
     /** Highscores routes **/
 
+    versionRouter.route('/scoreboard')
+        .get(highScoresController.createNewLocalScoreboard);
+
     versionRouter.route('/highscores')
-        .get(highScoresController.lisTopHighScores);
+        .post(highScoresController.lisTopHighScores);
 
     versionRouter.route('/highscores/add')
         .post(highScoresController.addNewPlayer);

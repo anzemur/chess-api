@@ -19,7 +19,14 @@ var PlayerSchema = new mongoose.Schema ({
     },
     date_out: {
         type: String
+    },
+    scoreboard_id: {
+        type: String
+
     }
+
+
+
 });
 
 module.exports = mongoose.model('Player', PlayerSchema);

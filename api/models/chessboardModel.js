@@ -23,6 +23,16 @@ var StatusSchema = new mongoose.Schema({
     turn: {
         type: String
 
+    },
+
+    ascii: {
+        type: String
+
+    },
+
+    pgn: {
+        type: String
+
     }
 
 
