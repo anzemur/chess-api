@@ -32,6 +32,9 @@ module.exports = function(app) {
     versionRouter.route('/chess/one/check')
         .post(chessOnePlayerController.checkGameOver);
 
+    versionRouter.route('/chess/one/check-position')
+        .post(chessOnePlayerController.checkPosition);
+
     versionRouter.route('/chess/one/fen')
         .post(chessOnePlayerController.returnFEN);
 
@@ -82,6 +85,9 @@ module.exports = function(app) {
 
     versionRouter.route('/chess/two/check')
         .post(chessTwoPlayersController.checkGameOver);
+
+    versionRouter.route('/chess/two/check-position')
+        .post(chessTwoPlayersController.checkPosition);
 
     versionRouter.route('/chess/two/fen')
         .post(chessTwoPlayersController.returnFEN);
