@@ -274,6 +274,26 @@ exports.checkGameOver = function(req, res) {
     });
 };
 
+exports.checkPosition = function(req, res) {
+    var gameId = req.body.game_id;
+
+    getChess(gameId, currentGame => {
+
+        if(currentGame != null) {
+            var chess = new Chess(currentGame.chess);
+            var positionStatus = new Status();
+
+            positionStatus.position = chess.get(res.body.position)
+            res.json(positionStatus);
+
+        } else {
+            status.status = "error: The game has expired OR you didn't put the game_id as the parameter!";
+            res.json(status);
+
+        }
+    });
+};
+
 exports.moveAI = function(req, res) {
 
     var gameId = req.body.game_id;

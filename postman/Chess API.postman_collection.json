@@ -317,6 +317,40 @@
 										"description": "Returns the current state of the game (checkmate, stalemate, draw, threefold repetition, or insufficient material, game continues)."
 									},
 									"response": []
+								},
+								{
+									"name": "Check position statue",
+									"request": {
+										"url": "http://chess-api-chess.herokuapp.com/api/v1/chess/one/check-position",
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"description": ""
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "game_id",
+													"value": "5a3c356be4538a2628f17ca4",
+													"description": "",
+													"type": "text"
+												},
+												{
+													"key": "position",
+													"value": "a2",
+													"description": "",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										},
+										"description": "Returns the current state of a position on the board."
+									},
+									"response": []
 								}
 							],
 							"_postman_isSubFolder": true
@@ -768,6 +802,40 @@
 											]
 										},
 										"description": "Returns the current state of the game (checkmate, stalemate, draw, threefold repetition, or insufficient material, game continues)."
+									},
+									"response": []
+								},
+								{
+									"name": "Check position statue",
+									"request": {
+										"url": "http://chess-api-chess.herokuapp.com/api/v1/chess/two/check-position",
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"description": ""
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "game_id",
+													"value": "5a3c356be4538a2628f17ca4",
+													"description": "",
+													"type": "text"
+												},
+												{
+													"key": "position",
+													"value": "a2",
+													"description": "",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										},
+										"description": "Returns the current state of a position on the board."
 									},
 									"response": []
 								}
