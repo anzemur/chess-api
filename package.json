@@ -11,7 +11,7 @@
   "dependencies": {
     "chess-ai-kong": "^0.3.3",
     "chess.js": "^0.10.2",
-    "express": "^4.16.2",
+    "express": "^4.17.3",
     "hhmmss": "^1.0.0",
     "mongoose": "^5.7.5",
     "mongose": "0.0.2-security",
